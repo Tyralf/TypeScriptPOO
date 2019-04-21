@@ -1,19 +1,18 @@
-function strinit(klass, data) {
+function strinit(Klass, data) {
+    var _a;
     var dataSplit = data.split(",");
-    //var result = klass.new(dataSplit[0], dataSplit[1]);
-    myObject = { prenom: dataSplit[0], nom: dataSplit[1] };
-    var myObject;
-    //var constructor = klass
-    //ass.nom = dataSplit[1];
-    return klass;
+    var t = (_a = Klass.prototype).constructor.apply(_a, dataSplit);
+    return Klass.prototype;
 }
 var Personne = /** @class */ (function () {
-    function Personne() {
+    function Personne(prenom, nom) {
+        this.prenom = prenom;
+        this.nom = nom;
     }
     return Personne;
 }());
+var test = new Personne("toto", "tata");
 var js = strinit(Personne, "Jon,Snow");
-//console.log((typeof js )+ " | prenom : " + js.prenom + ", nom : " + js.nom);
-var p = new Personne();
-var t = typeof p;
+console.log((typeof js) + " | prenom : " + js.prenom + ", nom : " + js.nom);
 console.log(js);
+console.log(test);

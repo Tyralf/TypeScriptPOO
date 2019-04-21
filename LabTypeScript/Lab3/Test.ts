@@ -1,19 +1,10 @@
-function strinit<T extends{new(data : string):{}}>(constructor:T)
+function strinit (Klass : any , data : string )
 {
     var dataSplit = data.split(",");
-    //var result = klass.new(dataSplit[0], dataSplit[1]);
-   
-    
- { prenom : dataSplit[0], nom : dataSplit[1]};
-   
-
-    //var constructor = klass
-    
-    //ass.nom = dataSplit[1];
-    return class extends constructor {
-        newProperty = "new property";
-        hello = "override";
-    }
+      
+    var t = Klass.constructor(...dataSplit)
+     
+    return Klass;   
 }
 
 class Personne 
@@ -21,17 +12,21 @@ class Personne
     public prenom : string;
     public nom : string;
 
-    Personne(s : string){
-        
+    constructor(prenom : string, nom : string){
+        this.prenom = prenom;
+        this.nom = nom;        
     }
 }
 
-var js = strinit<new Personne("Jon,Snow")>;
 
-//console.log((typeof js )+ " | prenom : " + js.prenom + ", nom : " + js.nom);
-var  p = new Personne()
+var test : Personne = new Personne("toto", "tata");
+
+var js = strinit(Personne.prototype, "Jon,Snow");
+
+console.log((typeof js )+ " | prenom : " + js.prenom + ", nom : " + js.nom);
 
 console.log(js);
 
+console.log(test)
 
 
