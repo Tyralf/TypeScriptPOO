@@ -7,6 +7,7 @@ class Orange extends FruitAPeler{}
 class Banane extends FruitAPeler{}
 class Fraise extends Fruit{}
 
+
 class BrochetteGen<T extends Fruit>
 {
     fruits : Array<T> = new Array<T>();
@@ -136,8 +137,8 @@ function recette4()
     brochette_fruit.embrocher(new Fraise());
 
     appel_a_peau(brochette_fruitAPeler);
-    //appel_a_peau(brochette_fruit); //erreur statique
-	appel_a_peau(brochette_banane); 
+    appel_a_peau(<BrochetteGen<FruitAPeler>>brochette_fruit); //erreur statique
+	appel_a_peau(brochette_banane); // ici comme c'est du Javascript il laisse passer n'importe quoi  
 }
 
 recette4();

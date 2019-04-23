@@ -80,6 +80,10 @@ function pele_mele(brochette) {
     }
     console.log("Nombre de fruit debroché et pelé : " + count);
 }
+function appel_a_peau(brochette) {
+    brochette.embrocher(new Orange());
+    brochette.embrocher(new Banane());
+}
 function brochette_fp_fruit(fruit) {
     var brochette_p = new BrochetteGen();
     var brochette_f = brochette_p;
@@ -133,5 +137,17 @@ function recette4() {
     pele_mele(brochette_fruitAPeler);
     pele_mele(brochette_banane);
     //pele_mele(brochette_fruit); //plante ici, etant donnée qu
+    brochette_fruitAPeler.embrocher(new Banane());
+    brochette_fruitAPeler.embrocher(new Orange());
+    brochette_fruitAPeler.embrocher(new Banane());
+    brochette_banane.embrocher(new Banane());
+    brochette_banane.embrocher(new Banane());
+    brochette_banane.embrocher(new Banane());
+    brochette_fruit.embrocher(new Banane());
+    brochette_fruit.embrocher(new Orange());
+    brochette_fruit.embrocher(new Fraise());
+    appel_a_peau(brochette_fruitAPeler);
+    appel_a_peau(brochette_fruit); //erreur statique
+    appel_a_peau(brochette_banane);
 }
 recette4();

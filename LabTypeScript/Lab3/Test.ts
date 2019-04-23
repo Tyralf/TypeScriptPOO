@@ -1,9 +1,7 @@
 function strinit (Klass : any , data : string )
 {
     var dataSplit = data.split(",");
-      
-    var t = Klass.constructor(...dataSplit)
-     
+    Klass.constructor(...dataSplit)
     return Klass;   
 }
 
@@ -18,15 +16,16 @@ class Personne
     }
 }
 
-
 var test : Personne = new Personne("toto", "tata");
-
 var js = strinit(Personne.prototype, "Jon,Snow");
 
 console.log((typeof js )+ " | prenom : " + js.prenom + ", nom : " + js.nom);
-
 console.log(js);
-
 console.log(test)
+
+
+var a = Personne.prototype;
+a.constructor("John","Doe");
+console.log(a);
 
 
